@@ -1,4 +1,4 @@
-# NotBattleship (Verison 0.8)
+# NotBattleship (v1.0.0-beta)
 ## Overview
 This is a two player strategy game in which each team has a set of boats.
 The object of the game is to destroy all of the other team's boats.
@@ -137,8 +137,8 @@ Even though the Submarine can attack it is techniquely a scout boat which means 
 Lastily, the Submarine has the ability to _Submerge_ which means the boat will move to a random spot on the map that wasn't currently in its view.
 
 ## Version
-This game is entering Beta version 0.8 as of 7/1/2021. 
+This game is entering Beta version v1.0.0-beta as of 7/1/2021. 
 
 More testing and changes will need to be made to the code before it can be offically be launched out of Beta.
 
-Once the game has a stable release, the next step in the process will be creating graphics for the game.
+Once the game has a stable release, the next step in the process will be creating graphics for the game should appear in v2.0.0.

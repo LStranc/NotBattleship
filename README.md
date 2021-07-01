@@ -142,3 +142,7 @@ This game is entering Beta version v1.0.0-beta as of 7/1/2021.
 More testing and changes will need to be made to the code before it can be offically be launched out of Beta.
 
 Once the game has a stable release, the next step in the process will be creating graphics for the game should appear in v2.0.0.
+
+## Requirements
+In order for this game to operate correctly it must be run on a Java IDE.
+This game was built on JDK 15.

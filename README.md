@@ -1,4 +1,4 @@
-# NotBattleship
+# NotBattleship (Verison 0.8)
 ## Overview
 This is a two player strategy game in which each team has a set of boats.
 The object of the game is to destroy all of the other team's boats.
@@ -16,14 +16,27 @@ They will also be confronted with a prompt that looks similar to this:
 4. Act
 
 They will be able to change the view of their map by typeing in the right corresponding number.
-If the player chooses 2 or 3 they will be able to see the location of their boats and the spots on the map their boats can see. (Choice 4 is not a map and is described seperately bellow.)
-The player will have the option to display their boats direction they are facing or their healths. 
+#### Blind Map
+It will change the map so that it hides everyteams boats.
+
+#### Direction Map
+The map will show that players boats, the spots on the map their boats have view of, and the direction of all of those boats.
+
+#### Health Map
+The map will show that players boats, the spots on the map their boats have view of, and remaining health of all of those boats.
+
+#### Understanding Map Symbols
 A boat will be recongnized on the map with three characters paired together.
-The first character will either be an arrow representing the boats dirrection or a number representing the boats health. 
+
+The __first character__ will either be an arrow representing the boats dirrection or a number representing the boats health. 
 This will depend on the mode the map is in.
-The second character will be an individual letter, representing the type of boat it is.
-The last character will be a number representing which team the boat is on.
+
+The __second character__ will be an individual letter, representing the first letter of the type of boat it is.
+
+The __last character__ will be a number representing which team the boat is on.
+
 For example, **5A1** represents an Aircraft Carrier that has 5 health and is on team 1.
+
 The player can move freely from one map to another but once they choose to Act (choice 4) they must continue with their turn.
 
 ### Act
@@ -38,9 +51,13 @@ Choose any of the following actions for Battleship:
 4. Attack
 
 Each boat is only allowed one action per turn. (With the expection of the Cruiser which acts twice) 
-The Move action allows the boats to move forward once in the direction its facing.
-The turn left and turn right action allow the boat to turn 45 degrees in the respective direction.
-The Attack action varries for each type of boat and will be described in further detail below.
+
+The _Move_ action allows the boats to move forward once in the direction its facing.
+
+The _Turn Left_ and _Turn Right_ action allow the boat to turn 45 degrees in the respective direction.
+
+The _Attack_ action varries for each type of boat and will be described in further detail below.
+
 Once every boat has gone through their action the player's turn ends and the other player's turn begins.
 
 
@@ -60,4 +77,68 @@ _Strength_ = 1
 _Range of View_ = 1
 
 #### Abilities:
-The Aircraft Carrier has planes which will attack every single enemy boat that is within its view. Although the planes do have a slight chance of being shot down which removes the ability of this boat to attack anymore.
+The Aircraft Carrier has planes which will attack every single enemy boat that is within its view, not just the boat in front of it. Although the planes do have a slight chance of being shot down which removes the ability of this boat to attack anymore.
+
+
+### Battleship
+#### Stats:
+
+_Health_ = 4
+
+_Strength_ = 3
+
+_Range of View_ = 1
+
+#### Abilities:
+The Battleship's attack method is a generic attack method and will attack the boat that it is facing.
+The Battleship is special because the _Strength_ of its attack.
+
+### Cruiser
+#### Stats:
+
+_Health_ = 3
+
+_Strength_ = 0
+
+_Range of View_ = 3
+
+#### Abilities:
+The Cruiser is a scout boat and doesn't have any attack method.  Although the Cruiser does have a good chance of dodging attacks. It also does get to do two actions within one turn while all other boats only get one action.
+
+
+
+### Destroyer
+#### Stats:
+
+_Health_ = 3
+
+_Strength_ = 2
+
+_Range of View_ = 1
+
+#### Abilities:
+The Destroyer's attack method is also a generic attack method. 
+Although the Destroyer has a high chance of dodging attacks from other boats.
+
+### Submarine
+#### Stats:
+
+_Health_ = 3
+
+_Strength_ = 2
+
+_Range of View_ = 2
+
+#### Abilities:
+The Submarine has 5 torpedos that it can use to attack other ships.
+The torpedos will atack any boats that are directly in front of the Submarine and are within view, meaning the Submarine has the ability to attack two boats at once.
+Once the Submarine is out of torpedos the Submarine can no longer attack.
+Even though the Submarine can attack it is techniquely a scout boat which means it has a good chance of dodging attacks. 
+Lastily, the Submarine has the ability to _Submerge_ which means the boat will move to a random spot on the map that wasn't currently in its view.
+
+## Version
+This game is entering Beta version 0.8 as of 7/1/2021. 
+
+More testing and changes will need to be made to the code before it can be offically be launched out of Beta.
+
+Once the game has a stable release, the next step in the process will be creating graphics for the game.

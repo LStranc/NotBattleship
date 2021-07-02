@@ -2,13 +2,6 @@ import java.util.Scanner;
 
 public class Game {
 
-
-    public static void lineBreaks(){
-          System.out.println("\n\n\n\n\n\n\n\n\n\n" +
-          "\n\n\n\n\n\n\n\n\n\n" +
-          "\n\n\n\n\n\n\n\n\n\n");
-    }
-
     public static void waitForEnter(){
         try {
             System.in.read();
@@ -38,10 +31,15 @@ public class Game {
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
 
-        System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears\n" +
-                "(Tears if you are the loser anyways lol.) The objective of the game is destroy all of the\n" +
-                "your opponents boats using clever strategy. Each boat has a unique property so make sure \n" +
-                "to use each of their skills to the best of your advantage.");
+        System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears (Tears \n" +
+                "if you are the loser anyways lol.) The objective of the game is to destroy all of the\n" +
+                "your opponents boats using clever strategy. Each boat has unique properties so make sure \n" +
+                "to use each of their skills to the best of your advantage.\n" +
+                "Please address the README.md file on Github Strancy27/NotBattleship for instructions on how \n" +
+                "to play and details of boats abilities.\n" +
+                "Press enter to continue..."
+        );
+        waitForEnter();
 
         int mapWidth = 10;
         int mapHeight = 10;
@@ -56,18 +54,15 @@ public class Game {
         //Creates array to hold all of Team two's Boats
         Boat[] teamTwo = new Boat[boatsPerTeam];
 
-        System.out.println(map.drawTeamMap(teamOne,1));
-
         // Stops Game if teams aren't the same size
         if(teamOne.length != teamTwo.length){
             System.out.println("Unfair Advantage!");
             System.exit(0);
         }
 
-        //lineBreaks();
         System.out.println("Great now that we have that settled. It's time for one of you to leave. No don't leave \n" +
                 "the room lol, just make sure you aren't in view of the computer anymore. If you are still\n" +
-                "in front of the computer you are Player 1. Click enter to proceed.");
+                "in front of the computer you are Player 1. \nPress enter to continue...");
         waitForEnter();
         /*
         System.out.println("Welcome Player 1. To start pick a coordinate to place your AircraftCarrier. It must be Below the half way point" +
@@ -131,7 +126,7 @@ public class Game {
                 System.out.println(map.drawTeamMap(team, mapView));
                 System.out.println("1. Blind Map\n" +
                         "2. Direction Map\n" +
-                        "3. Health \n" +
+                        "3. Health Map \n" +
                         "4. Act"
                 );
                 mapView = s.nextInt();

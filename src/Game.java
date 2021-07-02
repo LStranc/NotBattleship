@@ -1,13 +1,7 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
-
-
-    public static void lineBreaks(){
-          System.out.println("\n\n\n\n\n\n\n\n\n\n" +
-          "\n\n\n\n\n\n\n\n\n\n" +
-          "\n\n\n\n\n\n\n\n\n\n");
-    }
 
     public static void waitForEnter(){
         try {
@@ -35,13 +29,35 @@ public class Game {
         return false;
     }
 
+    public static int validateInput(Scanner scanner, Boat boatCheck){
+        int input = 4;
+        do{
+            try {
+                input = scanner.nextInt();
+                if (input > boatCheck.getNumActions() || input < 1) {
+                    throw new InputMismatchException();
+                }
+            }
+            catch(InputMismatchException e){
+                System.out.println("Invalid Input. Please try again.");
+            }
+            scanner.nextLine();
+        } while(input > boatCheck.getNumActions() || input < 1);
+        return input;
+    }
+
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
 
-        System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears\n" +
-                "(Tears if you are the loser anyways lol.) The objective of the game is destroy all of the\n" +
-                "your opponents boats using clever strategy. Each boat has a unique property so make sure \n" +
-                "to use each of their skills to the best of your advantage.");
+        System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears (Tears \n" +
+                "if you are the loser anyways lol.) The objective of the game is to destroy all of the\n" +
+                "your opponents boats using clever strategy. Each boat has unique properties so make sure \n" +
+                "to use each of their skills to the best of your advantage.\n" +
+                "Please address the README.md file on Github Strancy27/NotBattleship for instructions on how \n" +
+                "to play and details of boats abilities.\n" +
+                "Press enter to continue..."
+        );
+        waitForEnter();
 
         int mapWidth = 10;
         int mapHeight = 10;
@@ -56,18 +72,15 @@ public class Game {
         //Creates array to hold all of Team two's Boats
         Boat[] teamTwo = new Boat[boatsPerTeam];
 
-        System.out.println(map.drawTeamMap(teamOne,1));
-
         // Stops Game if teams aren't the same size
         if(teamOne.length != teamTwo.length){
             System.out.println("Unfair Advantage!");
             System.exit(0);
         }
 
-        //lineBreaks();
         System.out.println("Great now that we have that settled. It's time for one of you to leave. No don't leave \n" +
                 "the room lol, just make sure you aren't in view of the computer anymore. If you are still\n" +
-                "in front of the computer you are Player 1. Click enter to proceed.");
+                "in front of the computer you are Player 1. \nPress enter to continue...");
         waitForEnter();
         /*
         System.out.println("Welcome Player 1. To start pick a coordinate to place your AircraftCarrier. It must be Below the half way point" +
@@ -127,26 +140,37 @@ public class Game {
             }
             System.out.println("---------------------------------------------------\n" +
                     "Player " + teamNum);
-            while (mapView >= 1 && mapView <= 3) {
-                System.out.println(map.drawTeamMap(team, mapView));
-                System.out.println("1. Blind Map\n" +
-                        "2. Direction Map\n" +
-                        "3. Health \n" +
-                        "4. Act"
-                );
-                mapView = s.nextInt();
-
+            while (mapView != 4) {
+                if(mapView >= 1 && mapView <= 3) {
+                    System.out.println(map.drawTeamMap(team, mapView));
+                    System.out.println("1. Blind Map\n" +
+                            "2. Direction Map\n" +
+                            "3. Health Map \n" +
+                            "4. Act"
+                    );
+                }
+                try{
+                    mapView = s.nextInt();
+                    if (mapView > 4 || mapView < 1){
+                        throw new InputMismatchException();
+                    }
+                }
+                catch(InputMismatchException e){
+                    System.out.println("Invalid Input. Please try again:");
+                }
+                s.nextLine();
             }
 
             for (int i = 0; i < team.length; i++) {
                 if(team[i].getAlive()) {
                     System.out.println("\n" + team[i].getID() + " is located at " + team[i].getLocation() + " facing " + team[i].getDirection());
                     System.out.println(team[i].getActions());
-                    int choice1 = s.nextInt();
+                    int choice1 = validateInput(s, team[i]);
+
                     int choice2 = 4;
                     if (team[i].getID().contains("C")) {
                         System.out.println("The Cruiser is blazing with speed. Choose your second action.\n" + team[i].getActions());
-                        choice2 = s.nextInt();
+                        choice2 = validateInput(s, team[i]);
                     }
                     int[] choices = {choice1, choice2};
                     System.out.println(team[i].act(choices, map, 0));

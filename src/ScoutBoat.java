@@ -1,6 +1,6 @@
 public abstract class ScoutBoat extends Boat {
-    public ScoutBoat(int team, Coordinates location, int direction, int health, int vision){
-        super(team, location, direction, health, 2, vision);
+    public ScoutBoat(int TEAM, Coordinates location, int direction, int health, int VISION, int NUMACTIONS){
+        super(TEAM, location, direction, health, 2, VISION, NUMACTIONS);
     }
 
     public String takeHit(int damage){

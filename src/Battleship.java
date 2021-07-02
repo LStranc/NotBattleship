@@ -1,6 +1,6 @@
 public class Battleship extends Boat implements Attacker{
-    public Battleship(int team, Coordinates location, int direction){
-        super(team, location, direction, 4, 3,1);
+    public Battleship(int TEAM, Coordinates location, int direction){
+        super(TEAM, location, direction, 4, 3,1, 4);
     }
 
     public String getID(){

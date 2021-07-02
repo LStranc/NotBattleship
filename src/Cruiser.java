@@ -1,6 +1,6 @@
 public class Cruiser extends ScoutBoat{
-    public Cruiser(int team, Coordinates location, int direction){
-        super(team, location, direction, 3, 3);
+    public Cruiser(int TEAM, Coordinates location, int direction){
+        super(TEAM, location, direction, 3, 3, 3);
     }
 
     public String getID(){

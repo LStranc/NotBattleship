@@ -2,8 +2,8 @@ public class AircraftCarrier extends Boat implements Attacker{
 
     private boolean hasPlanes;
 
-    public AircraftCarrier(int team, Coordinates location, int direction){
-        super(team, location, direction, 5,1,1);
+    public AircraftCarrier(int TEAM, Coordinates location, int direction){
+        super(TEAM, location, direction, 5,1,1, 4);
         hasPlanes = true;
     }
 

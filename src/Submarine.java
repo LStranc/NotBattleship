@@ -1,8 +1,8 @@
 public class Submarine extends ScoutBoat implements Attacker{
     private int numOfTorpedoes;
 
-    public Submarine(int team, Coordinates location, int direction){
-        super(team,location,direction,3,2);
+    public Submarine(int TEAM, Coordinates location, int direction){
+        super(TEAM,location,direction,3,2,5);
         numOfTorpedoes = 5;
     }
 

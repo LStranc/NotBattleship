@@ -1,6 +1,6 @@
 public class Destroyer extends Boat implements Attacker{
-    public Destroyer(int team, Coordinates location, int direction){
-        super(team, location, direction, 3, 2,1);
+    public Destroyer(int TEAM, Coordinates location, int direction){
+        super(TEAM, location, direction, 3, 2,1,4);
     }
 
     public String getID(){

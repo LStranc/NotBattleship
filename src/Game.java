@@ -103,16 +103,16 @@ public class Game {
 
 
         //Team Ones Boats
-        teamOne[0] = new AircraftCarrier(1,startingPoints[5][9],0);
-        teamOne[1] = new Battleship(1,startingPoints[4][9] ,0);
-        teamOne[2] = new Cruiser(1,startingPoints[0][9],0);
-        teamOne[3] = new Destroyer(1,startingPoints[2][9],0);
-        teamOne[4] = new Destroyer(1,startingPoints[7][9],0);
-        teamOne[5] = new Submarine(1,startingPoints[9][9],0);
+        teamOne[0] = new AircraftCarrier(1,startingPoints[5][0],6);
+        teamOne[1] = new Battleship(1,startingPoints[4][9] ,2);
+        teamOne[2] = new Cruiser(1,startingPoints[0][9],4);
+        teamOne[3] = new Destroyer(1,startingPoints[5][8],6);
+        teamOne[4] = new Destroyer(1,startingPoints[4][8],2);
+        teamOne[5] = new Submarine(1,startingPoints[5][7],4);
 
         //Team Two's Boats
         teamTwo[0] = new AircraftCarrier(2,startingPoints[4][0],4);
-        teamTwo[1] = new Battleship(2,startingPoints[5][0] ,4);
+        teamTwo[1] = new Battleship(2,startingPoints[3][0] ,4);
         teamTwo[2] = new Cruiser(2,startingPoints[9][0] , 4);
         teamTwo[3] = new Destroyer(2,startingPoints[7][0] ,4);
         teamTwo[4] = new Destroyer(2,startingPoints[2][0] ,4);
@@ -165,15 +165,25 @@ public class Game {
                 if(team[i].getAlive()) {
                     System.out.println("\n" + team[i].getID() + " is located at " + team[i].getLocation() + " facing " + team[i].getDirection());
                     System.out.println(team[i].getActions());
-                    int choice1 = validateInput(s, team[i]);
+                    String action = "";
+                    do{
+                        int choice1 = validateInput(s, team[i]);
 
-                    int choice2 = 4;
-                    if (team[i].getID().contains("C")) {
-                        System.out.println("The Cruiser is blazing with speed. Choose your second action.\n" + team[i].getActions());
-                        choice2 = validateInput(s, team[i]);
-                    }
-                    int[] choices = {choice1, choice2};
-                    System.out.println(team[i].act(choices, map, 0));
+                        int choice2 = 4;
+                        if (team[i].getID().contains("C")) {
+                            System.out.println("The Cruiser is blazing with speed. Choose your second action.\n" + team[i].getActions());
+                            choice2 = validateInput(s, team[i]);
+                        }
+                        int[] choices = {choice1, choice2};
+                        action = team[i].act(choices, map, 0);
+                        if (action.contains(("cannot move"))){
+                            System.out.println(action.substring(action.indexOf("cannot move")-3, action.indexOf("n.") + 2));
+                        }
+                        else {
+                            System.out.println(action);
+                        }
+                    } while(action.contains("cannot move") || action.contains("no boats in range"));
+
                 }
             }
             turn++;

@@ -14,7 +14,7 @@ public class Cruiser extends ScoutBoat{
                 "3. Turn Right\n";
     }
 
-    public String act(int[] choice, World world, int round) {
+    public String act(int[] choice, World world, int round){
             if(round == 2){
                 return "";
             }

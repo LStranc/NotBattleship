@@ -58,7 +58,7 @@ public class AircraftCarrier extends Boat implements Attacker{
                 }
             }
             if(!calledAirRaid){
-                return "There are no boats in range currently.";
+                return "There are no boats in range currently. Please try again.";
             }
         }
         else{

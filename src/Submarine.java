@@ -43,14 +43,15 @@ public class Submarine extends ScoutBoat implements Attacker{
             Coordinates target = new Coordinates(getLocation().getX(),getLocation().getY());
             Boat attackedBoat = world.getOccupant(world.getAdjacentLocation(target, getDirectionNum()));
             for(int i = 0; i < getVision(); i++){
-                if(attackedBoat != null){
+                if(attackedBoat != null && world.getOccupant(target).getTeam() != getTeam()){
                     return "Fire torpedoes! " + attackedBoat.takeHit(getStrength()) + "\nSubmarine has " + numOfTorpedoes + " torpedoes left.";
                 }
                 else{
                     target = world.getAdjacentLocation(target,getDirectionNum());
                 }
             }
-            return "There are no boats in range currently.";
+            numOfTorpedoes++;
+            return "There are no boats in range currently. Please try again.";
         }
         return getID() + " has no torpedoes remaining.";
     }

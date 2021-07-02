@@ -34,14 +34,14 @@ public class Destroyer extends Boat implements Attacker{
         Coordinates target = new Coordinates(getLocation().getX(),getLocation().getY());
         Boat attackedBoat = map.getOccupant(map.getAdjacentLocation(target,getDirectionNum()));
         for(int i = 0; i < getVision(); i++){
-            if(attackedBoat != null){
+            if(attackedBoat != null && map.getOccupant(target).getTeam() != getTeam()){
                 return "Fire cannons! " + attackedBoat.takeHit(getStrength());
             }
             else{
                 target = map.getAdjacentLocation(target,getDirectionNum());
             }
         }
-        return "There are no boats in range currently.";
+        return "There are no boats in range currently. Please try again.";
     }
 
     public String takeHit(int damage){

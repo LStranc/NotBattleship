@@ -79,10 +79,10 @@ public abstract class Boat {
             return toString() + " moves from " + oldLocation + " to " + movingLocation + ". ";
         }
         else if(world.isLocationOccupied(movingLocation)){
-            return toString() + " cannot move to " + movingLocation + " as it is occupied. ";
+            return toString() + " cannot move to " + movingLocation + " as it is occupied. Please pick your actions again. ";
         }
         else{
-            return toString() + " cannot move off the map. ";
+            return toString() + " cannot move off the map. Please pick your actions again. ";
         }
     }
 

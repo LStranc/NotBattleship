@@ -67,6 +67,10 @@ public abstract class Boat {
 
     public boolean getAlive(){return alive;}
 
+    public String idle(){
+        return toString() + " idles at " + getLocation() + ". ";
+    }
+
     public String move(World world){
         Coordinates oldLocation = new Coordinates(getLocation().getX(), getLocation().getY());
         Coordinates movingLocation = world.getAdjacentLocation(getLocation(), direction);

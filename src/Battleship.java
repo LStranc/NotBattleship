@@ -1,6 +1,6 @@
 public class Battleship extends Boat implements Attacker{
     public Battleship(int TEAM, Coordinates location, int direction){
-        super(TEAM, location, direction, 4, 3,1, 4);
+        super(TEAM, location, direction, 4, 3,1, 5);
     }
 
     public String getID(){
@@ -9,20 +9,24 @@ public class Battleship extends Boat implements Attacker{
 
     public String getActions() {
         return "Choose any of the following actions for Battleship:\n" +
-                "1. Move\n" +
-                "2. Turn left\n" +
-                "3. Turn right\n" +
-                "4. Attack";
+                "1. Idle\n" +
+                "2. Move\n" +
+                "3. Turn left\n" +
+                "4. Turn right\n" +
+                "5. Attack";
     }
 
     public String act(int[] choice, World map, int round){
         if(choice[0] == 1){
-            return move(map);
+            return idle();
         }
         if(choice[0] == 2){
-            return turn(-1);
+            return move(map);
         }
         if(choice[0] == 3){
+            return turn(-1);
+        }
+        if(choice[0] == 4){
             return turn(1);
         }
         else{

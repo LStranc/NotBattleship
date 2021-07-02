@@ -2,7 +2,7 @@ public class Submarine extends ScoutBoat implements Attacker{
     private int numOfTorpedoes;
 
     public Submarine(int TEAM, Coordinates location, int direction){
-        super(TEAM,location,direction,3,2,5);
+        super(TEAM,location,direction,3,2,6);
         numOfTorpedoes = 5;
     }
 
@@ -12,24 +12,28 @@ public class Submarine extends ScoutBoat implements Attacker{
 
     public String getActions(){
         return "Choose any of the following actions for the Submarine: \n" +
-                "1. Move\n" +
-                "2. Turn Left\n" +
-                "3. Turn Right\n" +
-                "4. Submerge\n" +
-                "5. Fire Torpedoes (" + numOfTorpedoes + " torpedoes available)";
+                "1. Idle\n" +
+                "2. Move\n" +
+                "3. Turn Left\n" +
+                "4. Turn Right\n" +
+                "5. Submerge\n" +
+                "6. Fire Torpedoes (" + numOfTorpedoes + " torpedoes available)";
     }
 
     public String act(int[] choice, World world, int round){
         if (choice[0] == 1){
-            return move(world);
+            return idle();
         }
         if (choice[0] == 2){
-            return turn(-1);
+            return move(world);
         }
         if (choice[0] == 3){
-            return turn(1);
+            return turn(-1);
         }
         if (choice[0] == 4){
+            return turn(1);
+        }
+        if (choice[0] == 5){
             return submerge(world);
         }
         else{

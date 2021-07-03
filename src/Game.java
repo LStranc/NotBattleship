@@ -42,7 +42,7 @@ public class Game {
                 System.out.println("Invalid Input. Please try again.");
             }
             scanner.nextLine();
-        } while(input > boatCheck.getNumActions() || input < 1);
+        } while(!(input <= boatCheck.getNumActions() && input >= 1));
         return input;
     }
 
@@ -103,16 +103,16 @@ public class Game {
 
 
         //Team Ones Boats
-        teamOne[0] = new AircraftCarrier(1,startingPoints[5][0],6);
-        teamOne[1] = new Battleship(1,startingPoints[4][9] ,2);
-        teamOne[2] = new Cruiser(1,startingPoints[0][9],4);
-        teamOne[3] = new Destroyer(1,startingPoints[5][8],6);
-        teamOne[4] = new Destroyer(1,startingPoints[4][8],2);
-        teamOne[5] = new Submarine(1,startingPoints[5][7],4);
+        teamOne[0] = new AircraftCarrier(1,startingPoints[5][9],0);
+        teamOne[1] = new Battleship(1,startingPoints[4][9] ,0);
+        teamOne[2] = new Cruiser(1,startingPoints[0][9],0);
+        teamOne[3] = new Destroyer(1,startingPoints[2][9],0);
+        teamOne[4] = new Destroyer(1,startingPoints[7][9],0);
+        teamOne[5] = new Submarine(1,startingPoints[9][9],0);
 
         //Team Two's Boats
         teamTwo[0] = new AircraftCarrier(2,startingPoints[4][0],4);
-        teamTwo[1] = new Battleship(2,startingPoints[3][0] ,4);
+        teamTwo[1] = new Battleship(2,startingPoints[5][0] ,4);
         teamTwo[2] = new Cruiser(2,startingPoints[9][0] , 4);
         teamTwo[3] = new Destroyer(2,startingPoints[7][0] ,4);
         teamTwo[4] = new Destroyer(2,startingPoints[2][0] ,4);

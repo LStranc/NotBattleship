@@ -40,6 +40,7 @@ public class Game {
             }
             catch(InputMismatchException e){
                 System.out.println("Invalid Input. Please try again.");
+                input = 0;
             }
             scanner.nextLine();
         } while(!(input <= boatCheck.getNumActions() && input >= 1));

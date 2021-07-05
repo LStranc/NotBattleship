@@ -1,2 +1,11 @@
 # Project exclude paths
+!Battleship.iml
+*.class
+*.log
+.idea/aws.xml
+.idea/workspace.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/codeStyles/
+
 /out/

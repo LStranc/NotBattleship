@@ -1,5 +1,5 @@
 # Project exclude paths
-!Battleship.iml
+/!Battleship.iml
 *.class
 *.log
 .idea/aws.xml

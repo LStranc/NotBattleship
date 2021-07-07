@@ -1,3 +1,7 @@
+import boats.*;
+import map.Coordinates;
+import map.World;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

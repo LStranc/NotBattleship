@@ -1,3 +1,9 @@
+package boats;
+
+import map.Coordinates;
+import map.World;
+
+
 public abstract class Boat {
     final private int TEAM;
     private Coordinates location;

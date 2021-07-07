@@ -1,4 +1,9 @@
-public class Cruiser extends ScoutBoat{
+package boats;
+
+import map.Coordinates;
+import map.World;
+
+public class Cruiser extends ScoutBoat {
     public Cruiser(int TEAM, Coordinates location, int direction){
         super(TEAM, location, direction, 3, 3, 4);
     }

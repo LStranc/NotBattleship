@@ -1,3 +1,7 @@
+package boats;
+
+import map.Coordinates;
+
 public abstract class ScoutBoat extends Boat {
     public ScoutBoat(int TEAM, Coordinates location, int direction, int health, int VISION, int NUMACTIONS){
         super(TEAM, location, direction, health, 2, VISION, NUMACTIONS);

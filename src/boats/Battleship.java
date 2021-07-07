@@ -1,4 +1,9 @@
-public class Battleship extends Boat implements Attacker{
+package boats;
+
+import map.Coordinates;
+import map.World;
+
+public class Battleship extends Boat implements Attacker {
     public Battleship(int TEAM, Coordinates location, int direction){
         super(TEAM, location, direction, 4, 3,1, 5);
     }

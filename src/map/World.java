@@ -1,3 +1,7 @@
+package map;
+
+import boats.Boat;
+
 public class World {
     private Boat[][] map;
     final static int NORTH = 0;

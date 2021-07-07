@@ -1,4 +1,9 @@
-public class Submarine extends ScoutBoat implements Attacker{
+package boats;
+
+import map.World;
+import map.Coordinates;
+
+public class Submarine extends ScoutBoat implements Attacker {
     private int numOfTorpedoes;
 
     public Submarine(int TEAM, Coordinates location, int direction){

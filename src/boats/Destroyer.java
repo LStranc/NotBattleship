@@ -1,4 +1,9 @@
-public class Destroyer extends Boat implements Attacker{
+package boats;
+
+import map.Coordinates;
+import map.World;
+
+public class Destroyer extends Boat implements Attacker {
     public Destroyer(int TEAM, Coordinates location, int direction){
         super(TEAM, location, direction, 3, 2,1,5);
     }

@@ -1,4 +1,9 @@
-public class AircraftCarrier extends Boat implements Attacker{
+package boats;
+
+import map.Coordinates;
+import map.World;
+
+public class AircraftCarrier extends Boat implements Attacker {
 
     private boolean hasPlanes;
 

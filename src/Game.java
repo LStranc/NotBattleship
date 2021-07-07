@@ -48,7 +48,8 @@ public class Game {
     }
 
     public static void main(String[] args){
-        Launcher launcher = new Launcher();
+        //
+        // Launcher launcher = new Launcher();
         Scanner s = new Scanner(System.in);
 
         System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears (Tears \n" +

@@ -148,8 +148,7 @@ public class Game {
                 team = teamTwo;
                 teamNum = 2;
             }
-            System.out.println("---------------------------------------------------\n" +
-                    "Player " + teamNum);
+            System.out.println("Player " + teamNum);
             while (mapView != 4) {
                 if(mapView >= 1 && mapView <= 3) {
                     System.out.println(map.drawTeamMap(team, mapView));
@@ -196,6 +195,8 @@ public class Game {
 
                 }
             }
+            System.out.println("---------------------------------------------------");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             turn++;
         }
 

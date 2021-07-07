@@ -1,6 +1,7 @@
 import boats.*;
 import map.Coordinates;
 import map.World;
+import music.Music;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -54,6 +55,8 @@ public class Game {
     public static void main(String[] args){
         //
         // Launcher launcher = new Launcher();
+        Music music = new Music("src\\music\\!Battleship.wav");
+        music.play();
         Scanner s = new Scanner(System.in);
 
         System.out.println("\nWelcome to the Game of !Battleship! A game of love, laugh, blood, sweat and tears (Tears \n" +

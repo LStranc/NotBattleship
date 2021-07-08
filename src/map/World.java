@@ -117,7 +117,7 @@ public class World {
         String display = "";
         display += "@";
         for (int i = 1; i <= map.length; i++) {
-            display += "  " + i;
+            display += "  " + i + "  ";
         }
         for (int i = 0; i < getHeight(); i++) {
             display += "\n";
@@ -127,18 +127,14 @@ public class World {
                 String characterType = "";
                 outerLoop:
                 if (view == 1) {
-                    characterType = "###";
+                    characterType = "#### ";
                 }
 
                 else{
                     Coordinates coordinate = new Coordinates(i, j);
                     for(int a = 0; a < boats.length; a++){
                         if (map[j][i] != null && map[j][i].getLocation() != null && boats[a].getLocation() != null && map[j][i].getLocation().equals(boats[a].getLocation())) {
-                            if (view == 2) {
-                                characterType = map[j][i].getDirection() + map[j][i].getID();
-                            } else {
-                                characterType = map[j][i].getHealth() + map[j][i].getID();
-                            }
+                            characterType = map[j][i].getHealth() + map[j][i].getDirection() + map[j][i].getID() + " ";
                         }
                     }
 
@@ -150,14 +146,9 @@ public class World {
                                     if (boats[a].getLocation() != null && boats[a].getLocation().equals(viewCheck)) {
                                         if (boats[a].getVision() >= Math.abs(k) && boats[a].getVision() >= Math.abs(l)) {
                                             if (map[j][i] != null && map[j][i].getLocation() != null) {
-                                                if(view == 2) {
-                                                    characterType = map[j][i].getDirection() + map[j][i].getID();
-                                                }
-                                                else{
-                                                    characterType = map[j][i].getHealth() + map[j][i].getID();
-                                                }
+                                                characterType = map[j][i].getHealth()+ map[j][i].getDirection() + map[j][i].getID() + " ";
                                             } else {
-                                                characterType = "~~~";
+                                                characterType = "~~~~ ";
                                             }
                                             break outerLoop;
                                         }
@@ -168,7 +159,7 @@ public class World {
                     }
                 }
                 if (characterType.equals("")) {
-                    characterType = "###";
+                    characterType = "#### ";
                 }
 
                 display += characterType;

@@ -92,17 +92,6 @@ public class Game {
                 "the room lol, just make sure you aren't in view of the computer anymore. If you are still\n" +
                 "in front of the computer you are Player 1. \nPress enter to continue...");
         waitForEnter();
-        /*
-        System.out.println("Welcome Player 1. To start pick a coordinate to place your AircraftCarrier. It must be Below the half way point" +
-                "of the map.");
-
-
-
-        Coordinates aircraftCarrierLocation = new Coordinate()
-        s.next
-        */
-
-
 
         Coordinates[][] startingPoints = new Coordinates[mapWidth][mapHeight];
         for(int i = 0; i < mapWidth; i++){
@@ -134,9 +123,8 @@ public class Game {
             map.setOccupant(teamOne[i], teamOne[i].getLocation());
             map.setOccupant(teamTwo[i], teamTwo[i].getLocation());
         }
-        //lineBreaks();
-        System.out.println("Okay Great! Now we can start the actual game! Player 1, it's your turn. Press enter when\n" +
-                "when ready.\n");
+
+        System.out.println("Okay Great! Now we can start the actual game! Player 1, it's your turn.\n");
         int turn = 0;
         Boat[] team;
         int teamNum = 1;
@@ -151,18 +139,18 @@ public class Game {
                 teamNum = 2;
             }
             System.out.println("Player " + teamNum);
-            while (mapView != 4) {
-                if(mapView >= 1 && mapView <= 3) {
+            while (mapView != 3) {
+                if(mapView == 1 || mapView == 2) {
                     System.out.println(map.drawTeamMap(team, mapView));
                     System.out.println("1. Blind Map\n" +
-                            "2. Direction Map\n" +
-                            "3. Health Map \n" +
-                            "4. Act"
+                            "2. Action Map\n" +
+                            "3. Act"
                     );
                 }
                 try{
                     mapView = s.nextInt();
-                    if (mapView > 4 || mapView < 1){
+
+                    if (mapView > 3 || mapView < 1){
                         throw new InputMismatchException();
                     }
                 }

@@ -1,4 +1,4 @@
-# NotBattleship (v1.0.0-beta)
+ # NotBattleship (v1.0.0-beta)
 ## Overview
 This is a two player strategy game in which each team has a set of boats.
 The object of the game is to destroy all of the other team's boats.
@@ -25,31 +25,28 @@ Your operating system must have the __Java Development Kit (JDK) 15__ which can 
 A player's turn will always start with the hidden/blind map showing. 
 They will also be confronted with a prompt that looks similar to this:
 1. Blind Map
-2. Direction Map
-3. Health Map
+2. Action Map
 4. Act
 
 They will be able to change the view of their map by typeing in the right corresponding number.
 #### Blind Map
 It will change the map so that it hides both teams' boats.
 
-#### Direction Map
-The map will show your team's boats, the spots on the map your boats have view of, and the direction of all boats in view.
-
-#### Health Map
-The map will show your team's boats, the spots on the map your boats have view of, and remaining health of all boats in view.
+#### Action Map
+The map will show your team's boats, the spots on the map your boats have view of, and the health remaining and direction of all boats in view.
 
 ### Understanding Map Symbols
-A boat will be recongnized on the map with three characters paired together.
+A boat will be recongnized on the map with four characters paired together.
 
-The __first character__ will either be an arrow representing the boat's dirrection or a number representing the boat's health. 
-This will depend on the mode the map is in.
+The __first character__ will be a number representing the boat's remaining health.
 
-The __second character__ will be an individual letter, representing the first letter of the type of boat it is.
+The __second character__ will be an arrow representing the boat's dirrection.
+
+The __third character__ will be an individual letter, representing the first letter of the type of boat it is.
 
 The __last character__ will be a number representing which team the boat is on.
 
-For example, **5A1** represents an Aircraft Carrier that has 5 health and is on team 1.
+For example, **5🡑A1** represents an Aircraft Carrier that has 5 health and is on team 1.
 
 The player can move freely from one map to another but once they choose to Act (choice 4) they must continue with their turn.
 

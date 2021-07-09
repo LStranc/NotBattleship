@@ -129,7 +129,6 @@ public class Game {
         Boat[] team;
         int teamNum = 1;
         while(boatsAlive(teamOne) && boatsAlive(teamTwo)) {
-            int mapView = 1;
             if(turn % 2 == 0){
                 team = teamOne;
                 teamNum = 1;
@@ -139,35 +138,19 @@ public class Game {
                 teamNum = 2;
             }
             System.out.println("Player " + teamNum);
-            while (mapView != 3) {
-                if(mapView == 1 || mapView == 2) {
-                    System.out.println(map.drawTeamMap(team, mapView));
-                    System.out.println("1. Blind Map\n" +
-                            "2. Action Map\n" +
-                            "3. Act"
-                    );
-                }
-                try{
-                    mapView = s.nextInt();
 
-                    if (mapView > 3 || mapView < 1){
-                        throw new InputMismatchException();
-                    }
-                }
-                catch(InputMismatchException e){
-                    System.out.println("Invalid Input. Please try again:");
-                }
-                s.nextLine();
-            }
+            System.out.println(map.drawTeamMap(team, 1));
+            System.out.println("Press enter to start turn...");
+            waitForEnter();
 
             for (int i = 0; i < team.length; i++) {
                 if(team[i].getAlive()) {
+                    System.out.println("\n " + map.drawTeamMap(team, 2));
                     System.out.println("\n" + team[i].getID() + " is located at " + team[i].getLocation() + " facing " + team[i].getDirection());
                     System.out.println(team[i].getActions());
                     String action = "";
                     do{
                         int choice1 = validateInput(s, team[i]);
-
                         int choice2 = 4;
                         if (team[i].getID().contains("C")) {
                             System.out.println("The Cruiser is blazing with speed. Choose your second action.\n" + team[i].getActions());

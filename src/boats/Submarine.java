@@ -48,18 +48,27 @@ public class Submarine extends ScoutBoat implements Attacker {
 
     public String attack(World world){
         if (numOfTorpedoes > 0){
-            numOfTorpedoes--;
-            Coordinates target = new Coordinates(getLocation().getX(),getLocation().getY());
-            Boat attackedBoat = world.getOccupant(world.getAdjacentLocation(target, getDirectionNum()));
-            for(int i = 0; i < getVision(); i++){
-                if(attackedBoat != null && world.getOccupant(target).getTeam() != getTeam()){
-                    return "Fire torpedoes! " + attackedBoat.takeHit(getStrength()) + "\nSubmarine has " + numOfTorpedoes + " torpedoes left.";
+            String response = "";
+            boolean calledFire = false;
+            Coordinates attacked1 = world.getAdjacentLocation(getLocation(), getDirectionNum());
+            Boat attackedBoat1 = world.getOccupant(attacked1);
+            Coordinates attacked2 =  world.getAdjacentLocation(attacked1, getDirectionNum());
+            Boat attackedBoat2 = world.getOccupant(attacked2);
+            if((attackedBoat1 != null && attackedBoat1.getTeam() != getTeam()) ||
+                    (attackedBoat2 != null && attackedBoat2.getTeam() != getTeam())) {
+                numOfTorpedoes--;
+                calledFire = true;
+                response += "Fire torpedoes! ";
+                if(attackedBoat1 != null && attackedBoat1.getTeam() != getTeam()){
+                    response += attackedBoat1.takeHit(getStrength());
                 }
-                else{
-                    target = world.getAdjacentLocation(target,getDirectionNum());
+                if(attackedBoat2 != null && attackedBoat2.getTeam() != getTeam()){
+                    response += attackedBoat2.takeHit(getStrength());
                 }
+                response += "\nSubmarine has " + numOfTorpedoes + " torpedoes left.";
+                return response;
             }
-            numOfTorpedoes++;
+
             return "There are no boats in range currently. Please try again.";
         }
         return getID() + " has no torpedoes remaining.";

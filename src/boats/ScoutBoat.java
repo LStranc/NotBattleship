@@ -12,7 +12,7 @@ public abstract class ScoutBoat extends Boat {
             return super.takeHit(damage);
         }
         else{
-            return toString() + " has avoided the attack!";
+            return toString() + " has avoided the attack! ";
         }
     }
 

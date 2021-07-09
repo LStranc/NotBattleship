@@ -119,9 +119,9 @@ public abstract class Boat {
             health = 0;
             location = null;
             alive = false;
-            return toString() + " has been sunk!";
+            return toString() + " has been sunk! ";
         }
-        return toString() + " takes " + damage + " damage.";
+        return toString() + " takes " + damage + " damage. ";
     }
 
     public void setLocation(Coordinates location){

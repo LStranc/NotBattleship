@@ -22,18 +22,10 @@ Your operating system must have the __Java Development Kit (JDK) 15__ which can 
 
 ## How to Play
 ### Reading the Map
-A player's turn will always start with the hidden/blind map showing. 
-They will also be confronted with a prompt that looks similar to this:
-1. Blind Map
-2. Action Map
-4. Act
-
-They will be able to change the view of their map by typeing in the right corresponding number.
-#### Blind Map
-It will change the map so that it hides both teams' boats.
+A player's turn will always start with none of the boats showing.
 
 #### Action Map
-The map will show your team's boats, the spots on the map your boats have view of, and the health remaining and direction of all boats in view.
+This map will show at the beginning of each individual boat's turn. It will show your team's boats, the spots on the map your boats have view of, and the health remaining and direction of all boats in view.
 
 ### Understanding Map Symbols
 A boat will be recongnized on the map with four characters paired together.
@@ -50,9 +42,8 @@ For example, **5🡑A1** represents an Aircraft Carrier that has 5 health and is
 
 The player can move freely from one map to another but once they choose to Act (choice 4) they must continue with their turn.
 
-### Act
-Once the player has chose to Act, they will be prompted with a set of actions for a specific boat of theirs.
-The set of actions are dependent on the type of the boat.
+### Actions
+Each boat will have a unique set of actions.
 For example, the actions list for the Battleship are,
 
 Choose any of the following actions for Battleship:

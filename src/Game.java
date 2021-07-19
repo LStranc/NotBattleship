@@ -113,7 +113,7 @@ public class Game {
         //Team Two's Boats
         teamTwo[0] = new Cruiser(2,startingPoints[9][0] , 4);
         teamTwo[1] = new Submarine(2,startingPoints[0][0] ,4);
-        teamTwo[2] = new AircraftCarrier(2,startingPoints[4][0],4);
+        teamTwo[2] = new AircraftCarrier(2,startingPoints[4 ][0],4);
         teamTwo[3] = new Destroyer(2,startingPoints[7][0] ,4);
         teamTwo[4] = new Destroyer(2,startingPoints[2][0] ,4);
         teamTwo[5] = new Battleship(2,startingPoints[5][0] ,4);
@@ -168,7 +168,10 @@ public class Game {
 
                 }
             }
+            System.out.println(map.drawTeamMap(team, 2));
             System.out.println("---------------------------------------------------");
+            System.out.println("Press enter to finish turn...");
+            waitForEnter();
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             turn++;
         }

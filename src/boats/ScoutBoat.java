@@ -8,7 +8,7 @@ public abstract class ScoutBoat extends Boat {
     }
 
     public String takeHit(int damage){
-        if(Math.random() <= 0.25){
+        if(Math.random() >= 0.25){
             return super.takeHit(damage);
         }
         else{

@@ -12,12 +12,25 @@ public class Cruiser extends ScoutBoat {
         return "C" + getTeam();
     }
 
+    public String getBoatType(){ return "Cruiser";}
+
     public String getActions() {
-        return "Choose any of the following actions for the Cruiser: \n" +
-                "1. Idle\n" +
-                "2. Move\n" +
-                "3. Turn Left\n" +
-                "4. Turn Right";
+        return super.getActions();
+    }
+
+    public String act(int choice, World world){
+        if(choice == 1){
+            return idle();
+        }
+        else if(choice == 2){
+            return move(world);
+        }
+        else if(choice == 3){
+            return turn(-1);
+        }
+        else {
+            return turn(1);
+        }
     }
 
     public String act(int[] choice, World world, int round){
@@ -35,4 +48,5 @@ public class Cruiser extends ScoutBoat {
                 return turn(1) + act(choice, world, ++round);
             }
     }
+
 }

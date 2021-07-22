@@ -4,14 +4,14 @@ import boats.Boat;
 
 public class World {
     private Boat[][] map;
-    final static int NORTH = 0;
-    final static int NORTHEAST = 1;
-    final static int EAST = 2;
-    final static int SOUTHEAST = 3;
-    final static int SOUTH = 4;
-    final static int SOUTHWEST = 5;
-    final static int WEST = 6;
-    final static int NORTHWEST = 7;
+    public static final int NORTH = 0;
+    public static final int NORTHEAST = 1;
+    public static final int EAST = 2;
+    public static final int SOUTHEAST = 3;
+    public static final int SOUTH = 4;
+    public static final int SOUTHWEST = 5;
+    public static final int WEST = 6;
+    public static final int NORTHWEST = 7;
 
     public World(int x, int y) {
         if (x < 4) {

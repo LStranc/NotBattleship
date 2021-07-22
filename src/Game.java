@@ -52,6 +52,24 @@ public class Game {
         return input;
     }
 
+    public static void boatActs(Boat[] team, int order, Scanner scanner, World board){
+        String action = "";
+        System.out.println(board.drawTeamMap(team, 2));
+        System.out.println("\n" + team[order].getID() + " is located at " + team[order].getLocation() + " facing " + team[order].getDirection());
+        do{
+            System.out.println(team[order].getActions());
+
+
+            int choice = validateInput(scanner, team[order]);
+            action = team[order].act(choice, board);
+            if (action.contains(("cannot move"))) {
+                System.out.println(action.substring(action.indexOf("cannot move") - 3, action.indexOf("n.") + 2));
+            } else {
+                System.out.println(action);
+            }
+        } while(action.contains("cannot move") || action.contains("no boats in range"));
+    }
+
     public static void main(String[] args){
         //
         // Launcher launcher = new Launcher();
@@ -145,11 +163,13 @@ public class Game {
 
             for (int i = 0; i < team.length; i++) {
                 if(team[i].getAlive()) {
-                    System.out.println("\n " + map.drawTeamMap(team, 2));
-                    System.out.println("\n" + team[i].getID() + " is located at " + team[i].getLocation() + " facing " + team[i].getDirection());
-                    System.out.println(team[i].getActions());
-                    String action = "";
-                    do{
+                    boatActs(team, i, s, map);
+                    if (team[i].getID().contains("C")){
+                        System.out.println("\nThe Cruiser is blazing with speed. Choose your second action.");
+                        boatActs(team, i, s, map);
+                    }
+
+                    /*do{
                         int choice1 = validateInput(s, team[i]);
                         int choice2 = 4;
                         if (team[i].getID().contains("C")) {
@@ -164,7 +184,8 @@ public class Game {
                         else {
                             System.out.println(action);
                         }
-                    } while(action.contains("cannot move") || action.contains("no boats in range"));
+                     */
+
 
                 }
             }
@@ -175,6 +196,5 @@ public class Game {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             turn++;
         }
-
     }
 }

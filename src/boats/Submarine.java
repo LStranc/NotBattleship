@@ -15,14 +15,33 @@ public class Submarine extends ScoutBoat implements Attacker {
         return "S" + getTeam();
     }
 
+    public String getBoatType(){return "Submarine";}
+
     public String getActions(){
-        return "Choose any of the following actions for the Submarine: \n" +
-                "1. Idle\n" +
-                "2. Move\n" +
-                "3. Turn Left\n" +
-                "4. Turn Right\n" +
+        return super.getActions() +
                 "5. Submerge\n" +
                 "6. Fire Torpedoes (" + numOfTorpedoes + " torpedoes available)";
+    }
+
+    public String act(int choice, World world){
+        if(choice == 1){
+            return idle();
+        }
+        else if(choice == 2){
+            return move(world);
+        }
+        else if(choice == 3){
+            return turn(-1);
+        }
+        else if(choice == 4){
+            return turn(1);
+        }
+        else if(choice == 5){
+            return submerge(world);
+        }
+        else{
+            return attack(world);
+        }
     }
 
     public String act(int[] choice, World world, int round){

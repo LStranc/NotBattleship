@@ -16,13 +16,29 @@ public class AircraftCarrier extends Boat implements Attacker {
         return "A" + getTeam();
     }
 
+    public String getBoatType() {return "AircraftCarrier:";}
+
     public String getActions(){
-        return "Choose any of the following actions for AircraftCarrier:\n" +
-                "1. Idle\n" +
-                "2. Move\n" +
-                "3. Turn Left\n" +
-                "4. Turn Right\n" +
+        return super.getActions() +
                 "5. Launch planes (" + (hasPlanes?"Available":"Destroyed") + ")";
+    }
+
+    public String act(int choice, World world){
+        if(choice == 1){
+            return idle();
+        }
+        else if(choice == 2){
+            return move(world);
+        }
+        else if(choice == 3){
+            return turn(-1);
+        }
+        else if(choice == 4){
+            return turn(1);
+        }
+        else{
+            return attack(world);
+        }
     }
 
     public String act(int[] choice, World map, int round){

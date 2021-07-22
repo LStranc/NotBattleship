@@ -65,6 +65,7 @@ public class World {
             map[coordinates.getX()][coordinates.getY()] = boat;
             return true;
         }
+        map[coordinates.getX()][coordinates.getY()] = null;
         return false;
     }
 

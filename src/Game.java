@@ -93,7 +93,7 @@ public class Game {
         //Creates the map and sets its size
         World map = new World(mapWidth,mapHeight);
 
-        int boatsPerTeam = 6;
+        int boatsPerTeam = 2;
         //Creates array to hold all of Team one's Boats
         Boat[] teamOne = new Boat[boatsPerTeam];
 
@@ -121,21 +121,24 @@ public class Game {
 
         //Team Ones Boats
         teamOne[0] = new Cruiser(1,startingPoints[0][9],0);
-        teamOne[1] = new Submarine(1,startingPoints[9][9],0);
+        teamOne[1] = new Submarine(1,startingPoints[4][5],0);
+        /*
         teamOne[2] = new AircraftCarrier(1,startingPoints[5][9],0);
         teamOne[3] = new Destroyer(1,startingPoints[2][9],0);
         teamOne[4] = new Destroyer(1,startingPoints[7][9],0);
         teamOne[5] = new Battleship(1,startingPoints[4][9] ,0);
+        */
 
 
         //Team Two's Boats
         teamTwo[0] = new Cruiser(2,startingPoints[9][0] , 4);
-        teamTwo[1] = new Submarine(2,startingPoints[0][0] ,4);
+        teamTwo[1] = new Submarine(2,startingPoints[4][4] ,4);
+        /*
         teamTwo[2] = new AircraftCarrier(2,startingPoints[4 ][0],4);
         teamTwo[3] = new Destroyer(2,startingPoints[7][0] ,4);
         teamTwo[4] = new Destroyer(2,startingPoints[2][0] ,4);
         teamTwo[5] = new Battleship(2,startingPoints[5][0] ,4);
-
+*/
 
         for(int i = 0; i<teamOne.length; i++){
             map.setOccupant(teamOne[i], teamOne[i].getLocation());

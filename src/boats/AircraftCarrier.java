@@ -73,7 +73,7 @@ public class AircraftCarrier extends Boat implements Attacker {
                         }
                         double k = Math.random();
                         if(k > 0.1) {
-                            response += map.getOccupant(attacked).takeHit(getStrength()) + " ";
+                            response += map.getOccupant(attacked).takeHit(getStrength(), map) + " ";
                         }
                         else{
                             hasPlanes = false;

@@ -60,7 +60,7 @@ public class Destroyer extends Boat implements Attacker {
         Boat attackedBoat = map.getOccupant(map.getAdjacentLocation(target,getDirectionNum()));
         for(int i = 0; i < getVision(); i++){
             if(attackedBoat != null && attackedBoat.getTeam() != getTeam()){
-                return "Fire cannons! " + attackedBoat.takeHit(getStrength());
+                return "Fire cannons! " + attackedBoat.takeHit(getStrength(), map);
             }
             else{
                 target = map.getAdjacentLocation(target,getDirectionNum());
@@ -69,12 +69,12 @@ public class Destroyer extends Boat implements Attacker {
         return "There are no boats in range currently. Please try again.";
     }
 
-    public String takeHit(int damage){
+    public String takeHit(int damage, World map){
         if(Math.random() >= .5){
             return getID() + " avoids the attack!";
         }
         else{
-            return super.takeHit(damage);
+            return super.takeHit(damage, map);
         }
     }
 }

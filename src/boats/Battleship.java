@@ -60,7 +60,7 @@ public class Battleship extends Boat implements Attacker {
         Boat attackedBoat = map.getOccupant(map.getAdjacentLocation(target,getDirectionNum()));
         for(int i = 0; i < getVision(); i++){
             if(attackedBoat != null && attackedBoat.getTeam() != getTeam()){
-                return "Fire cannons! " + attackedBoat.takeHit(getStrength());
+                return "Fire cannons! " + attackedBoat.takeHit(getStrength(), map);
             }
             else{
                 target = map.getAdjacentLocation(target,getDirectionNum());

@@ -144,11 +144,12 @@ public abstract class Boat {
         return toString() + " turned " + whichWay + ", now facing " + getDirection() + ". \n";
     }
 
-    public String takeHit(int damage){
+    public String takeHit(int damage, World map){
         health -= damage;
 
         if(health <= 0){
             health = 0;
+            map.setOccupant(this, location);
             location = null;
             alive = false;
             return toString() + " has been sunk! \n";

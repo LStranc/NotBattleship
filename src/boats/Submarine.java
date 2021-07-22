@@ -79,10 +79,10 @@ public class Submarine extends ScoutBoat implements Attacker {
                 calledFire = true;
                 response += "Fire torpedoes! ";
                 if(attackedBoat1 != null && attackedBoat1.getTeam() != getTeam()){
-                    response += attackedBoat1.takeHit(getStrength());
+                    response += attackedBoat1.takeHit(getStrength(), world);
                 }
                 if(attackedBoat2 != null && attackedBoat2.getTeam() != getTeam()){
-                    response += attackedBoat2.takeHit(getStrength());
+                    response += attackedBoat2.takeHit(getStrength(), world);
                 }
                 response += "\nSubmarine has " + numOfTorpedoes + " torpedoes left.";
                 return response;

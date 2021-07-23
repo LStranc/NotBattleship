@@ -17,11 +17,27 @@ public class Submarine extends ScoutBoat implements Attacker {
 
     public String getBoatType(){return "Submarine";}
 
+    public String getChargeBar(){
+        if (getCharged() <= 0){
+            return "|      |";
+        }
+        else if (getCharged() == 1){
+            return "|\u2188    |";
+        }
+        else if (getCharged() == 2){
+            return "|\u2188\u2188  |";
+        }
+        else{
+            return "Fully Charged! |\u2188\u2188\u2188|";
+        }
+    }
+
     public String getActions(){
         return super.getActions() +
-                "5. Submerge\n" +
+                "5. Submerge: " + getChargeBar() + "\n" +
                 "6. Fire Torpedoes (" + numOfTorpedoes + " torpedoes available)";
     }
+
 
     public String act(int choice, World world){
         if(choice == 1){
@@ -85,6 +101,7 @@ public class Submarine extends ScoutBoat implements Attacker {
                     response += attackedBoat2.takeHit(getStrength(), world);
                 }
                 response += "\nSubmarine has " + numOfTorpedoes + " torpedoes left.";
+                setCharged(1);
                 return response;
             }
 
@@ -94,17 +111,23 @@ public class Submarine extends ScoutBoat implements Attacker {
     }
 
     public String submerge(World world){
-        int xCord = (int)(Math.random() * (world.getWidth()));
-        int yCord = (int)(Math.random() * (world.getHeight()));
-        Coordinates randomLocation = new Coordinates(xCord, yCord);
-        if (Math.abs(xCord - getLocation().getX()) >= 2 && Math.abs(yCord - getLocation().getY()) >= 2 && (!world.isLocationOccupied(randomLocation))) {
-            Coordinates oldLocation = getLocation();
-            world.setOccupant(this, randomLocation);
-            world.setOccupant(null, oldLocation);
-            setLocation(randomLocation);
-            return getID() + " moves from " + oldLocation + " to " + randomLocation + ".";
+        if(getCharged() >= 3) {
+            int xCord = (int) (Math.random() * (world.getWidth()));
+            int yCord = (int) (Math.random() * (world.getHeight()));
+            Coordinates randomLocation = new Coordinates(xCord, yCord);
+            if (Math.abs(xCord - getLocation().getX()) >= 2 && Math.abs(yCord - getLocation().getY()) >= 2 && (!world.isLocationOccupied(randomLocation))) {
+                Coordinates oldLocation = getLocation();
+                world.setOccupant(this, randomLocation);
+                world.setOccupant(null, oldLocation);
+                setLocation(randomLocation);
+                setCharged(0);
+                return getID() + " moves from " + oldLocation + " to " + randomLocation + ".";
+            }
+            return submerge(world);
         }
-        return submerge(world);
+        else{
+            return "Submerge capability is not ready yet.";
+        }
     }
 
 

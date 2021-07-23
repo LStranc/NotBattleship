@@ -64,10 +64,11 @@ public class Game {
             action = team[order].act(choice, board);
             if (action.contains(("cannot move"))) {
                 System.out.println(action.substring(action.indexOf("cannot move") - 3, action.indexOf("n.") + 2));
-            } else {
+            }
+            else{
                 System.out.println(action);
             }
-        } while(action.contains("cannot move") || action.contains("no boats in range"));
+        } while(action.contains("cannot move") || action.contains("no boats in range") || action.contains(("not ready yet")));
     }
 
     public static void main(String[] args){
@@ -117,7 +118,6 @@ public class Game {
                 startingPoints[i][j] = new Coordinates(i,j);
             }
         }
-
 
         //Team Ones Boats
         teamOne[0] = new Cruiser(1,startingPoints[0][9],0);

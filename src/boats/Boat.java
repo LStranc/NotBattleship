@@ -13,6 +13,7 @@ public abstract class Boat {
     final private int VISION;
     private boolean alive;
     final private int NUMACTIONS;
+    private int charged;
 
     public Boat(int TEAM, Coordinates location, int direction, int health, int STRENGTH, int VISION, int NUMACTIONS){
         this.TEAM = TEAM;
@@ -23,6 +24,7 @@ public abstract class Boat {
         this.VISION = VISION;
         this.NUMACTIONS = NUMACTIONS;
         alive = true;
+        charged = 3;
     }
 
     public int getTeam(){
@@ -87,6 +89,18 @@ public abstract class Boat {
         return VISION;
     }
     public int getNumActions() {return NUMACTIONS;}
+    public int getCharged() {return charged;}
+    public void setCharged(int increase){
+        if(increase == 1){
+            charged++;
+        }
+        else if(increase == 0){
+            charged = 0;
+        }
+        else{
+            System.out.println("Wrong setCharged input");
+        }
+    }
 
     public abstract String getID();
 
@@ -106,6 +120,7 @@ public abstract class Boat {
     public boolean getAlive(){return alive;}
 
     public String idle(){
+        charged++;
         return toString() + " idles at " + getLocation() + ". \n";
     }
 
@@ -117,7 +132,7 @@ public abstract class Boat {
 
             world.setOccupant(null, oldLocation);
             setLocation(movingLocation);
-
+            charged++;
             return toString() + " moves from " + oldLocation + " to " + movingLocation + ". \n";
         }
         else if(world.isLocationOccupied(movingLocation)){
@@ -141,6 +156,7 @@ public abstract class Boat {
             case -1: whichWay = "left"; break;
             case 1: whichWay = "right"; break;
         }
+        charged++;
         return toString() + " turned " + whichWay + ", now facing " + getDirection() + ". \n";
     }
 

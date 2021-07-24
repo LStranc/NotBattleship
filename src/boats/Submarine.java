@@ -19,10 +19,10 @@ public class Submarine extends ScoutBoat implements Attacker {
 
     public String getChargeBar(){
         if (getCharged() <= 0){
-            return "|      |";
+            return "|     |";
         }
         else if (getCharged() == 1){
-            return "|\u2188    |";
+            return "|\u2188   |";
         }
         else if (getCharged() == 2){
             return "|\u2188\u2188  |";
